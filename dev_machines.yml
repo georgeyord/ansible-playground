@@ -1,5 +1,6 @@
 ---
 
+- import_playbook: byobu.yml
 - import_playbook: docker.yml
 - import_playbook: docker-ctop.yml
 - import_playbook: nodejs.yml
