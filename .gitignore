@@ -1,2 +1,8 @@
+# VSCode
+.history
 
+# Dev env
+*.todo
+
+# Project specific
 hosts.ini

@@ -25,7 +25,7 @@ When you are done you should be able to run `ssh -i [SSH_KEY] [USER]@[IP]` and l
 ./scripts/init_remote.sh -i [SSH_KEY] [USER]@[IP]
 ```
 
-4. Copy `hosts.ini.example` to `hosts.ini` and use the information gathered above to describe your servers. For example it could be as simple as this:
+4. Copy `hosts.example.ini` to `hosts.ini` and use the information gathered above to describe your servers. For example it could be as simple as this:
 ```
 [all:vars]
 ansible_ssh_private_key_file = ~/.ssh/id_rsa
@@ -51,8 +51,9 @@ ansible-playbook demo.yml --limit swarm_staging_1
 ```
 
 > Try it out on your own, this command is harmless!
+> To learn more about what this playbook is executing check [this file](roles/demo/tasks/main.yml).
 
-You can run also ad-hoc commands like this one:
+You can run also ad-hoc commands like this one which prints out all IP addresses for the remote server:
 ```
 ansible swarm_staging_1 -m shell -a "hostname -I"
 ```
@@ -65,7 +66,7 @@ ansible swarm_staging_1 -m shell -a "hostname -I"
 Root folder hosts:
 
 - `scripts` folder some helping scripts you may have already used
-- `hosts.ini.example`, an example file to use to create your `hosts.ini`
+- `hosts.example.ini`, an example file to use to create your `hosts.ini`
 - `hosts.ini` which describes your servers
 - the diferent playbooks (files ending in `.yaml`)
 - `roles` folder to host the play definitions activated by the playbooks above

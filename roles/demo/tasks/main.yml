@@ -1,15 +1,20 @@
 ---
 
-- debug:
+- name: Print out the IP used to access the remote server
+  debug:
     msg: My external IP is {{ ansible_host }}
 
+# Stores output of command `whoami` to a variable with data
+# for the user used to access the remote server
 - shell: whoami
   register: whoami
 
-- debug:
+- name: Print out the variable whoami introduced above
+  debug:
     msg: The logged in user is {{ whoami.stdout_lines }}
 
-- name: Display all variables/facts known for a host
-  debug:
-    var: hostvars[inventory_hostname]
-  tags: debug_info
+# This prints out all the ansible variable and it is quite long, uncomment if you want to check it
+# - name: Display all variables/facts known for a host
+#   debug:
+#     var: hostvars[inventory_hostname]
+#   tags: debug_info
