@@ -1,0 +1,8 @@
+---
+
+- import_playbook: byobu.yaml
+- import_playbook: docker.yaml
+- import_playbook: docker-ctop.yaml
+- import_playbook: nodejs.yaml
+- import_playbook: golang.yaml
+- import_playbook: kubernetes-operator.yaml
