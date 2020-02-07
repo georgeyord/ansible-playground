@@ -1,0 +1,15 @@
+
+# To install and use: `ansible-galaxy install andrewrothstein.kubectl`
+# Reference: https://github.com/andrewrothstein/ansible-kubectl
+
+# To install and use: `ansible-galaxy install gantsign.kops`
+# Reference: https://github.com/gantsign/ansible_role_kops
+
+- hosts:
+    - dev_machines
+  become: true
+  roles:
+    - andrewrothstein.kubectl
+    - gantsign.kops
+  vars:
+    kops_version: '1.15.0'

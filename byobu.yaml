@@ -1,5 +1,4 @@
 # To install and use: `ansible-galaxy install thomfab.byobu`
-# Reference: https://github.com/nickjj/ansible-docker
 
 - hosts:
     - dev_machines
