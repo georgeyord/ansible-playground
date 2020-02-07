@@ -1,0 +1,10 @@
+---
+# To install and use: `ansible-galaxy install gantsign.ctop`
+# Reference: https://github.com/gantsign/ansible_role_ctop
+# Reference: https://github.com/bcicen/ctop
+
+- hosts:
+    - dev_machines
+  become: true
+  roles:
+    - gantsign.ctop

@@ -1,0 +1,28 @@
+---
+# To install and use: `ansible-galaxy install nickjj.docker`
+# Reference: https://github.com/nickjj/ansible-docker
+
+- hosts:
+    - dev_machines
+  become: true
+  vars:
+    - docker__edition: "ce"
+    - docker_channel: "stable"
+    - docker__version: "19.03"
+    - docker__state: "present" # change to latest for an upgrade
+    - docker__compose_version: "1.25.3"
+    - docker__users: ["{{ ansible_user }}", "{{ default_user }}"]
+    - docker__daemon_flags:
+      - "-H fd://"
+    # - docker__registries:
+    #   - registry_url: registry.gitlab.com
+    #     username: gitlab+deploy-token-XXX
+    #     password: CHANGEME
+    #     email: changeme@example.com
+    - docker__cron_jobs:
+      - name: "Docker disk clean up"
+        job: "docker system prune --force --all > /dev/null 2>&1"
+        schedule: ["0", "0", "*", "*", "0"]
+        cron_file: "docker-disk-clean-up"
+  roles:
+    - nickjj.docker
