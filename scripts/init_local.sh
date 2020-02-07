@@ -16,10 +16,9 @@ type ansible >/dev/null 2>&1 || \
 cd ..
 sudo mkdir -p /etc/ansible
 
-if [ ! -f /etc/ansible/hosts ]; then
-  echo "Create a soft link from '$(pwd)/hosts.ini' to '/etc/ansible/hosts'"
-  sudo ln -s "$(pwd)/hosts.ini" "/etc/ansible/hosts"
-fi
+sudo rm -f /etc/ansible/hosts
+echo "Create a soft link from '$(pwd)/hosts.ini' to '/etc/ansible/hosts'"
+sudo ln -s "$(pwd)/hosts.ini" "/etc/ansible/hosts"
 
 if [ ! -f /etc/ansible/ansible.cfg ]; then
   echo "Create a soft link from '$(pwd)/ansible.cfg' to '/etc/ansible/ansible.cfg'"

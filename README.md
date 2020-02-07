@@ -1,9 +1,7 @@
-A series of ansible playbooks to setup debian servers - mostly for testing
-
 > **Ansible** is one of the simplest ways to automate the setup of IT infrastructure.
 > Ansible = Application Deployment + Configuration Management + Continuous Delivery
 
-## Installation
+# Installation
 
 1. Run the following script to prepare to run `ansible`:
 
@@ -44,7 +42,7 @@ The generic pattern is the follwoing:
 [NAME] ansible_host=[IP] ansible_user=[USER]
 ```
 
-## First usage example
+# First usage example
 
 To use it go to the repo root folder and run a command like:
 
@@ -60,4 +58,37 @@ ansible swarm_staging_1 -m shell -a "hostname -I"
 ```
 
 > Try it out, this command is also harmless!
+> If something is not correct, check the Troubleshooting section below.
 
+# Folder structure
+
+Root folder hosts:
+
+- `scripts` folder some helping scripts you may have already used
+- `hosts.ini.example`, an example file to use to create your `hosts.ini`
+- `hosts.ini` which describes your servers
+- the diferent playbooks (files ending in `.yaml`)
+- `roles` folder to host the play definitions activated by the playbooks above
+
+# Hints and tips on usage
+
+- Ansible provides 2 commands: `ansible` for custom commands and `ansible-playbook` to run playbooks
+- To target to specific servers add: `--limit swarm_staging_1`
+- To target to a specific tag add: `--tag config`
+
+# Troubleshooting
+
+## Missing ssh key
+
+If you don't have an ssh key locally (`ls ~/.ssh/id*` returns `No such file or directory`) consider creating one as described in this [link](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+
+## Could not match supplied host pattern
+
+`hosts.ini` is describing our servers and is linked to `/etc/ansible/hosts`. Check that both of these have the correct configuration.
+
+```
+cat hosts.ini # should contain your server setup
+cat /etc/ansible/hosts # should contain exactly the same content
+```
+
+> If something is not correct, try following again the Installation section above.
