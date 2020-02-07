@@ -1,0 +1,15 @@
+---
+
+- debug:
+    msg: My external IP is {{ ansible_host }}
+
+- shell: whoami
+  register: whoami
+
+- debug:
+    msg: The logged in user is {{ whoami.stdout_lines }}
+
+- name: Display all variables/facts known for a host
+  debug:
+    var: hostvars[inventory_hostname]
+  tags: debug_info
