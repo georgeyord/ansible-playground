@@ -1,0 +1,40 @@
+---
+
+- pam_limits:
+    domain: root
+    limit_type: hard
+    limit_item: fsize
+    value: 65536
+    use_max: yes
+  tags:
+    - prepare
+
+- pam_limits:
+    domain: root
+    limit_type: soft
+    limit_item: fsize
+    value: 65536
+    use_max: yes
+  tags:
+    - prepare
+
+- name: set kernel_params
+  sysctl:
+    name: "{{ item.param }}"
+    value: "{{ item.value }}"
+    state: present
+    reload: yes
+  with_items: "{{ kernel_params }}"
+  tags:
+    - prepare
+
+- name: set kernel_params_for_lt_4_12
+  sysctl:
+    name: "{{ item.param }}"
+    value: "{{ item.value }}"
+    state: present
+    reload: yes
+  with_items: "{{ kernel_params_for_lt_4_12 }}"
+  when: ansible_kernel is version('4.12', '<=')
+  tags:
+    - prepare
