@@ -11,7 +11,7 @@ Run the following script to prepare to run `ansible`:
 scripts/init_local.sh
 ```
 
-Edit `hosts.ini` to describe your servers. For example it could be as simple as this:
+Copy `hosts.ini.example` to `hosts.ini` to describe your servers. For example it could be as simple as this:
 ```
 [all:vars]
 ansible_ssh_private_key_file = ~/.ssh/id_rsa

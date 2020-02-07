@@ -28,3 +28,5 @@ foo_1 ansible_host=X.X.X.X ansible_user=foo
 bar_1 ansible_host=Y.Y.Y.Y ansible_user=bar
 # this describes another single server with his IP
 bar_2 ansible_host=Z.Z.Z.Z ansible_user=bar
+
+sasa
