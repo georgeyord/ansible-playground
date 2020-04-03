@@ -1,0 +1,15 @@
+---
+
+- name: Required packages installed
+  apt:
+    state: latest
+    pkg: [
+      'wget',
+      'curl',
+      'jq',
+      'multitail',
+      'htop'
+    ]
+    update_cache: yes
+  tags:
+    - install
