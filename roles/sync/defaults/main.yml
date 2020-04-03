@@ -1,0 +1,4 @@
+
+sync_path:
+  src: ../../../..
+  dest: /opt/codebase
