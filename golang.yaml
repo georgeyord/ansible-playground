@@ -1,8 +1,0 @@
-# To install and use: `ansible-galaxy install thomaslorentsen.golang`
-# Reference: https://github.com/thomaslorentsen/ansible-golang
-
-- hosts:
-    - dev_machines
-  become: true
-  roles:
-    - thomaslorentsen.golang
