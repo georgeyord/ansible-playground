@@ -1,0 +1,34 @@
+---
+
+- name: Required packages installed
+  apt:
+    state: latest
+    pkg: [
+      'perl',
+      'libnet-ssleay-perl',
+      'openssl',
+      'libauthen-pam-perl',
+      'libpam-runtime',
+      'libio-pty-perl',
+      'apt-show-versions',
+      'apt-transport-https',
+      'python'
+    ]
+    update_cache: yes
+    force_apt_get: yes
+  tags:
+    - install
+
+- name: Download a .deb package from the internet
+  get_url:
+    url: http://prdownloads.sourceforge.net/webadmin/webmin_{{ webmin.version }}_{{ webmin.flavor }}.deb
+    dest: /tmp/webmin.deb
+  tags:
+    - install
+
+- name: Install a .deb package from the internet
+  apt:
+    deb: /tmp/webmin.deb
+    force_apt_get: yes
+  tags:
+    - install

@@ -1,0 +1,9 @@
+---
+
+- hosts:
+    - all
+  roles:
+    - golang
+  vars:
+    go_get:
+      - github.com/takecy/slack-cli

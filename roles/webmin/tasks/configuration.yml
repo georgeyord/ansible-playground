@@ -1,0 +1,10 @@
+---
+
+- name: SSL mode
+  lineinfile:
+    path: /etc/webmin/miniserv.conf
+    regexp: '^ssl='
+    line: ssl={{ webmin.ssl }}
+  notify: restart webmin
+  tags:
+    - configuration

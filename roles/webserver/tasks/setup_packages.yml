@@ -1,0 +1,12 @@
+---
+
+- name: Install apache2
+  apt:
+    state: latest
+    pkg: [
+      'apache2'
+    ]
+    update_cache: yes
+    force_apt_get: yes
+  tags:
+    - install

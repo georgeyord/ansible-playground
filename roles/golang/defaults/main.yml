@@ -1,0 +1,5 @@
+---
+
+go_get:
+# - name: golint
+#   url: github.com/golang/lint/golint

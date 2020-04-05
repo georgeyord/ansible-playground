@@ -1,0 +1,12 @@
+---
+
+- name: Required packages installed
+  apt:
+    state: latest
+    pkg: [
+      'golang'
+    ]
+    force_apt_get: yes
+  become: true
+  tags:
+    - install

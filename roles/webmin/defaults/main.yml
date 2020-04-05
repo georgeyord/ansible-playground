@@ -1,0 +1,5 @@
+
+webmin:
+  version: "1.920"
+  flavor: all
+  ssl: 0

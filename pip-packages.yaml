@@ -1,0 +1,11 @@
+# ansible-galaxy install geerlingguy.pip
+---
+
+- hosts:
+    - all
+  roles:
+    - geerlingguy.pip
+  vars:
+    pip_install_packages:
+      # Specify names and versions.
+      - name: poetry

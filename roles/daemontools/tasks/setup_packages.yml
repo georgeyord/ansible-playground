@@ -1,0 +1,13 @@
+---
+
+- name: Install daemontools
+  apt:
+    state: latest
+    pkg: [
+      'daemontools',
+      'daemontools-run'
+    ]
+    update_cache: yes
+    force_apt_get: yes
+  tags:
+    - install

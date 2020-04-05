@@ -1,0 +1,6 @@
+# ansible-galaxy install azavea.daemontools
+---
+- hosts: all
+  become: true
+  roles:
+    - daemontools

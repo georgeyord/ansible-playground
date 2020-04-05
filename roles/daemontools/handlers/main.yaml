@@ -1,0 +1,5 @@
+
+  - name: restart daemontools
+    service:
+      name: daemontools
+      state: restarted

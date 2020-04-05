@@ -1,0 +1,11 @@
+---
+
+- name: "Go get packages"
+  command: "{{ GOROOT }} get -u {{ item }}"
+  environment:
+    GOPATH: "{{ GOPATH }}"
+    GOROOT: "{{ GOROOT }}"
+    GOPROXY: "{{ GOPROXY }}"
+  with_items: "{{ go_get }}"
+  tags:
+    - packages
