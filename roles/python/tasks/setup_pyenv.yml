@@ -1,0 +1,10 @@
+---
+
+- name: Check if pyenv is installed
+  command: test -f /home/pi/.pyenv/bin/pyenv
+  register: pyenv_check
+  ignore_errors: yes
+
+- name: Install pyenv
+  command: curl https://pyenv.run | bash
+  when: pyenv_check.rc != 0

@@ -5,5 +5,6 @@
 - import_playbook: daemontools.yaml
 - import_playbook: webmin.yaml
 - import_playbook: webserver.yaml
+- import_playbook: python.yaml
 - import_playbook: pip-packages.yaml
 - import_playbook: golang.yaml
