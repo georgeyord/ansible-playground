@@ -1,0 +1,6 @@
+
+lcd:
+  type: LCD35
+  rotation: 180
+  # To activate hdmi use `disable: True`
+  disable: False

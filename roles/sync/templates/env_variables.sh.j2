@@ -1,3 +1,5 @@
+#! /bin/bash
+
 {% if env_variables != false %}
 {% for item in env_variables %}
 export {{ item.name }}={{ item.value }}
