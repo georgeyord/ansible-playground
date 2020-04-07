@@ -1,0 +1,5 @@
+---
+
+- import_tasks: sync_paths.yaml
+- import_tasks: env_variables.yaml
+- import_tasks: cron_jobs.yaml

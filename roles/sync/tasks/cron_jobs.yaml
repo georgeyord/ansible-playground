@@ -1,0 +1,17 @@
+---
+
+- name: Creates env entries on top of crontab
+  cron:
+    name: "{{ item.name }}"
+    env: yes
+    job: "{{ item.value }}"
+  with_items: "{{ env_variables }}"
+
+- name: Configure Slackit cron job
+  cron:
+    name: slackit
+    minute: "*"
+    backup: yes
+    disabled: no
+    job: "{{ sync_path.dest }}/homeberry/services/slackit/run.sh"
+    state: present

@@ -2,3 +2,8 @@
 sync_path:
   src: ../../../..
   dest: /opt/codebase
+
+# Add your ENVs you want to have on boot here
+# env_variables:
+#   - name: SLACKIT_URL
+#     value: http://example.com
