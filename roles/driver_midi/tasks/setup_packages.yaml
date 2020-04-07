@@ -10,13 +10,11 @@
   apt:
     state: latest
     pkg: [
-      'git',
-      'vim',
-      'wget',
-      'curl',
-      'jq',
-      'multitail',
-      'htop'
+      'alsa-utils',
+      'fluidsynth',
+      'fluid-soundfont-gm',
+      'fluid-soundfont-gs',
+      'qsynth'
     ]
     force_apt_get: yes
   tags:
