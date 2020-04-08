@@ -1,0 +1,7 @@
+
+[program:fluidsynth]
+user={{ default_user }}
+command=/usr/bin/fluidsynth -a alsa /usr/share/sounds/sf2/FluidR3_GM.sf2 -o synth.gain=0.5 -o audio.periods=8 -o synth.cpu-cores=4
+; redirect_stderr=true
+stderr_logfile = /var/log/midi-fluidsynth-stderr.log
+stdout_logfile = /var/log/midi-fluidsynth-stdout.log

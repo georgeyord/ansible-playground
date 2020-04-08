@@ -6,12 +6,49 @@
     env: yes
     job: "{{ item.value }}"
   with_items: "{{ env_variables }}"
+  tags:
+    - config
+
+# Slackit
+- name: Creates Slackit log file
+  file:
+    path: "/var/log/slackit.log"
+    state: file
+    owner: "{{ default_user }}"
+    group: "{{ default_user }}"
+    mode: 0666
+  become: true
+  tags:
+    - config
 
 - name: Configure Slackit cron job
   cron:
     name: slackit
-    minute: "*"
     backup: yes
     disabled: no
-    job: "{{ sync_path.dest }}/homeberry/services/slackit/run.sh"
+    job: "{{ sync_path.dest }}/homeberry/services/scripts/slackit/onboot.sh"
     state: present
+  tags:
+    - config
+
+# MIDI aconnect-in-out
+- name: Creates aconnect-in-out log file
+  file:
+    path: "/var/log/aconnect-in-out.log"
+    state: file
+    owner: "{{ default_user }}"
+    group: "{{ default_user }}"
+    mode: 0666
+  become: true
+  tags:
+    - config
+
+- name: Configure aconnect-in-out cron job
+  cron:
+    name: midi-aconnect
+    backup: yes
+    disabled: no
+    job: "{{ sync_path.dest }}/homeberry/services/scripts/midi/aconnect-onboot.sh"
+    state: present
+  tags:
+    - config

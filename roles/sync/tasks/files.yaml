@@ -9,6 +9,8 @@
     mode: 0775
     recurse: yes
   become: true
+  tags:
+    - files
 
 - synchronize:
     src: "{{ sync_path.src }}"
@@ -16,3 +18,5 @@
     times: yes
     delete: yes
     recursive: yes
+  tags:
+    - files

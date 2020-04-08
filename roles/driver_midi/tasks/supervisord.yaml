@@ -1,0 +1,33 @@
+---
+
+- name: Creates directory
+  file:
+    path: /etc/supervisor/conf.d
+    state: directory
+    owner: root
+    group: root
+    mode: 0775
+    recurse: yes
+  become: true
+  tags:
+    - config
+
+- name: update fluidsynth.conf
+  template:
+    src: supervisord/fluidsynth.conf.j2
+    dest: /etc/supervisor/conf.d/fluidsynth.conf
+    owner: root
+    group: root
+    mode: 0644
+  register: fluidsynth_updated
+  become: true
+  tags:
+    - config
+
+- supervisorctl:
+    name: fluidsynth
+    state: restarted
+  when: fluidsynth_updated is changed
+  notify: restart supervisor
+  tags:
+    - config

@@ -1,8 +1,0 @@
-
-- name: Start service ntp, if not started
-  service:
-    name: ntp
-    state: started
-
-- shell: "timedatectl set-ntp 1"
-  become: true

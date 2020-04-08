@@ -1,3 +1,4 @@
 ---
 
 - import_tasks: setup_packages.yaml
+- import_tasks: supervisord.yaml
