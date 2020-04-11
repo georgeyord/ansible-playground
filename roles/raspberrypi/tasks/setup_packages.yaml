@@ -18,7 +18,11 @@
       'multitail',
       'htop',
       'supervisor',
-      'ntp'
+      'ntp',
+      'python',
+      'python3',
+      'python-rpi.gpio',
+      'python3-rpi.gpio'
     ]
     force_apt_get: yes
   tags:
