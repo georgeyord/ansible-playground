@@ -5,6 +5,8 @@
     upgrade: dist
     update_cache: yes
     force_apt_get: yes
+  tags:
+    - install
 
 - name: Required packages installed
   apt:
@@ -14,7 +16,8 @@
       'fluidsynth',
       'fluid-soundfont-gm',
       'fluid-soundfont-gs',
-      'qsynth'
+      'qsynth',
+      'python-midiutil'
     ]
     force_apt_get: yes
   tags:
@@ -24,3 +27,5 @@
   apt:
     autoclean: yes
     force_apt_get: yes
+  tags:
+    - install
