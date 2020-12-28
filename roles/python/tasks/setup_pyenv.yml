@@ -8,3 +8,14 @@
 - name: Install pyenv
   command: curl https://pyenv.run | bash
   when: pyenv_check.rc != 0
+
+- name: Ensure pyenv is sourced from the .bashrc
+  blockinfile:
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    block: |
+      export PATH="/home/pi/.pyenv/bin:$PATH"
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+    marker: '# {mark} ANSIBLE MANAGED BLOCK - pyenv'
+    insertbefore: BOF
+    create: yes
