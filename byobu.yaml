@@ -1,7 +1,9 @@
 # To install and use: `ansible-galaxy install thomfab.byobu`
 
 - hosts:
-    - dev_machines
+    - all
   become: true
   roles:
     - thomfab.byobu
+  vars:
+    byobu_launch_by_default: True
