@@ -1,0 +1,23 @@
+- name: Reboot the machine, wait until it has restarted and run test command
+  reboot:
+    msg: "Reboot initiated by Ansible"
+    reboot_timeout: 30
+    test_command: whoami
+  register: restart_var
+
+- debug:
+    var: restart_var
+
+- shell: hostname -I
+  register: hostname_var
+
+- name: Print out the variable 'hostanme -I' introduced above
+  debug:
+    msg: The registered IPs are {{ hostname_var.stdout_lines }}
+
+- shell: uptime
+  register: uptime_var
+
+- name: Print out the variable 'uptime' introduced above
+  debug:
+    msg: The system runs for {{ uptime_var.stdout_lines }}
