@@ -6,4 +6,5 @@
   roles:
     - thomfab.byobu
   vars:
+    # Ensure byobu is by default enabled
     byobu_launch_by_default: True
