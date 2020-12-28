@@ -1,0 +1,12 @@
+---
+
+- import_playbook: ../raspberrypi.yaml
+- import_playbook: ../byobu.yaml
+- import_playbook: ../daemontools.yaml
+- import_playbook: ../webmin.yaml
+# - import_playbook: ../webserver.yaml
+- import_playbook: ../python.yaml
+- import_playbook: ../pip-packages.yaml
+- import_playbook: ../golang.yaml
+# - import_playbook: ../driver-lcd.yaml
+- import_playbook: ../driver-midi.yaml
