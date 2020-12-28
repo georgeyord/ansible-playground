@@ -1,20 +1,19 @@
 ---
-# To install and use: `ansible-galaxy install franklinkim.swap`
-# Reference: https://github.com/weareinteractive/ansible-swap
+# To install and use: `ansible-galaxy install geerlingguy.swap`
+# Reference: https://github.com/geerlingguy/ansible-role-swap
 
 - hosts:
-    - dev_machines
+    - all
   roles:
-    - franklinkim.swap
+    - geerlingguy.swap
   become: true
   vars:
     # swap file path
     swap_file_path: /swapfile
     # swap file size in bytes
-    swap_file_size: "{{ 4096 * 1024 * 1024 }}" # 4G
+    swap_file_size_mb: "2048" # 2G
     # Configures how often your system swaps data out of RAM to the
     # swap space. This is a value between 0 and 100 that represents a percentage
     swap_swappiness: 10
-    # This setting configures how much the system will
-    # choose to cache inode and dentry information over other data
-    swap_vfs_scache_pressure: 50
+    # If you wish to remove your swapfile, and disable swap, set this to absent. Generally you'd probably want to set this to present.
+    swap_file_state: present
