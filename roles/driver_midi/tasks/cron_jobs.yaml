@@ -9,10 +9,10 @@
   tags:
     - config
 
-# Slackit
-- name: Creates Slackit log file
+# MIDI aconnect-in-out
+- name: Creates aconnect-in-out log file
   file:
-    path: "/var/log/slackit.log"
+    path: "/var/log/midi-aconnect-in-out.log"
     state: touch
     owner: "{{ default_user }}"
     group: "{{ default_user }}"
@@ -21,12 +21,12 @@
   tags:
     - config
 
-- name: Configure Slackit cron job
+- name: Configure aconnect-in-out cron job
   cron:
-    name: slackit
+    name: midi-aconnect
     backup: yes
     disabled: no
-    job: "{{ sync_path.dest }}/homeberry/services/scripts/slackit/onboot.sh"
+    job: "{{ paths.codebase }}/homeberry/services/scripts/midi/aconnect-onboot.sh"
     state: present
   tags:
     - config
