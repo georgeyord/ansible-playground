@@ -10,9 +10,15 @@
   tags:
   - date
 
+# This prints out all the ansible variable and it is quite long, uncomment if you want to check it
+- debug:
+    var: host_date
+  tags:
+  - date
+  - debug_info
+
 - name: set Ansible host date to remote
-  shell: date -s "{{ host_date.stdout }}"
+  shell: date -s "{{ host_date.stdout_lines }}"
   become: true
   tags:
   - date
-
