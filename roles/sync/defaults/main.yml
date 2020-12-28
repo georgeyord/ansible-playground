@@ -4,6 +4,8 @@ sync_path:
   dest: /opt/codebase
 
 # Add your ENVs you want to have on boot here
-# env_variables:
+env_variables:
+  - name: FOO
+    value: bar
 #   - name: SLACKIT_URL
 #     value: http://example.com

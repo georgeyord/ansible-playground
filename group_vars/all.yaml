@@ -1,7 +1,7 @@
 # Common
 default_user: pi
-default_user_password: CHANGEME
-ansible_ssh_public_key: "CHANGE ME TO A VALID PUBLIC SSH KEY"
+# default_user_password: CHANGEME
+# ansible_ssh_public_key: "CHANGE ME TO A VALID PUBLIC SSH KEY"
 
 paths:
   codebase: /opt/codebase
