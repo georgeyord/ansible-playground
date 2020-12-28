@@ -3,13 +3,31 @@
 
 # Installation
 
-1. Run the following script to prepare to run `ansible`:
+1. In ansible host, run the following script to prepare to run `ansible` commands:
 
 ```
 ./scripts/init_local.sh
 ```
 
-2. Gather the following information per server:
+2. Run the following script on *each* of the Debian servers to prepare them to run ansible playbooks:
+
+```
+./scripts/init_remote.sh -i [SSH_KEY] [USER]@[IP]
+```
+
+3. Copy public key to targets to be abel to login without a password:
+
+```
+ssh-copy-id pi@[IP]
+```
+
+4. Change default password to improve security _(optional)_:
+
+```
+ssh pi@[IP] passwd
+```
+
+5. Gather the following information per ansible target:
 ```
 - name, eg dev_machine_1
 - IP, eg 1.2.3.4
@@ -19,13 +37,7 @@
 
 When you are done you should be able to run `ssh -i [SSH_KEY] [USER]@[IP]` and log in each of the servers.
 
-3. Run the following script on *each* of the Debian servers to prepare them to run ansible playbooks:
-
-```
-./scripts/init_remote.sh -i [SSH_KEY] [USER]@[IP]
-```
-
-4. Copy `hosts.example.ini` to `hosts.ini` and use the information gathered above to describe your servers. For example it could be as simple as this:
+6. Copy `hosts.example.ini` to `hosts.ini` and use the information gathered above to describe your servers. For example it could be as simple as this:
 ```
 [all:vars]
 ansible_ssh_private_key_file = ~/.ssh/id_rsa
@@ -47,7 +59,7 @@ The generic pattern is the follwoing:
 To use it go to the repo root folder and run a command like:
 
 ```
-ansible-playbook demo.yml --limit swarm_staging_1
+ansible-playbook demo.yaml --limit swarm_staging_1
 ```
 
 > Try it out on your own, this command is harmless!
