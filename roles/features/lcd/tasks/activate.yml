@@ -1,0 +1,22 @@
+---
+
+- name: Check that the .have_installed exists
+  stat:
+    path: "{{ paths.codebase }}/drivers/LCD-show/.have_installed"
+  register: have_installed_result
+
+- name: Print out output
+  debug:
+    msg: "Your raspberry Pi will now restart after the next command..."
+
+- shell: "./{{ lcd.type }}-show {{ lcd.rotation }}"
+  args:
+    chdir: "{{ paths.codebase }}/drivers/LCD-show"
+  ignore_errors: yes
+  when: lcd.disable|bool == False
+
+- shell: "./LCD-hdmi"
+  args:
+    chdir: "{{ paths.codebase }}/drivers/LCD-show"
+  ignore_errors: yes
+  register: activate_result

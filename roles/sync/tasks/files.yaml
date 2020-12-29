@@ -12,7 +12,8 @@
   tags:
     - files
 
-- synchronize:
+- name: sync folders
+  synchronize:
     src: "{{ sync_path.src }}"
     dest: "{{ sync_path.dest }}"
     times: yes

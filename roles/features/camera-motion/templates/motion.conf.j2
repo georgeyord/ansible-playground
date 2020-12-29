@@ -1,0 +1,49 @@
+#################
+
+daemon on
+
+stream_localhost off
+
+webcontrol_localhost off
+
+ffmpeg_output_movies on
+
+target_dir /var/lib/motion
+
+##################
+
+#local web browser streaming options
+
+##################
+
+stream_maxrate 100 #This will allow for real-time streaming but requires more bandwidth & resources
+
+framerate 60 #This will allow for 60 frames to be captured per second #the higher this gets, the slower the video processing
+
+width 640 #This changes the width of the image displayed
+
+height 480 #This changes the height of the image displayed
+
+##################
+
+#emailing video settings in .../motion.conf
+
+##################
+
+#delete the " ; " in front of the line, the semicolon comments the line out
+
+on_event_start python /home/pi/background/motionalert.py %f
+
+on_movie_end python /home/pi/background/motionvid.py %f
+
+##################
+
+#astectics
+
+##################
+
+#choices described in the file
+
+output_pictures locate_motion_style
+
+##################

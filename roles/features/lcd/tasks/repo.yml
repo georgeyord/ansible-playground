@@ -1,0 +1,18 @@
+---
+
+- git:
+    repo:  https://github.com/goodtft/LCD-show.git
+    dest: "{{ paths.codebase }}/drivers/LCD-show"
+    version: master
+    depth: 1
+    force: yes
+  become: true
+
+- name: Change file ownership, group and permissions
+  become: true
+  file:
+    path: "{{ paths.codebase }}/drivers/LCD-show"
+    owner: "{{ default_user }}"
+    group: "{{ default_user }}"
+    mode: '0755'
+    recurse: yes

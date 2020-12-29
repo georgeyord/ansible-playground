@@ -4,4 +4,4 @@
     - all
   become: true
   roles:
-    - driver_midi
+    - features/midi

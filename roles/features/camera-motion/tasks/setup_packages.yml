@@ -1,0 +1,12 @@
+---
+
+- name: Install motion
+  apt:
+    state: latest
+    pkg: [
+      'motion'
+    ]
+    update_cache: yes
+    force_apt_get: yes
+  tags:
+    - install

@@ -3,4 +3,4 @@
 - hosts:
     - all
   roles:
-    - driver_lcd
+    - features/lcd
