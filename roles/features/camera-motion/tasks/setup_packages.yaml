@@ -1,0 +1,8 @@
+---
+
+- name: Install motion .deb package github releases
+  apt:
+    deb: https://github.com/Motion-Project/motion/releases/download/release-{{motion.version}}/pi_buster_motion_{{motion.version}}-1_armhf.deb
+  become: true
+  tags:
+    - install

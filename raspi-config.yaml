@@ -33,7 +33,7 @@
     raspi_config_hostname: pi-one
 
     # ensure camera support is on - CURRENTLY UNVERIFIED
-    raspi_config_enable_camera: yes
+    raspi_config_enable_camera: no
 
     # specify whether to fail deployment when user/password is default
     # ignored if "raspi_config_replace_user" is set (warning will still display)

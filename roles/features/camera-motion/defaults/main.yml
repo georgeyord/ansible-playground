@@ -1,0 +1,43 @@
+
+motion:
+  version: 4.3.2
+  config:
+    daemon: "off"
+    stream_port: 8081
+    webcontrol_port: 8080
+    mmalcam_name: vc.ril.camera
+    # Camera control parameters (see raspivid/raspistill tool documentation)
+    mmalcam_control_params:
+    # Level of log messages [1..9] (EMG, ALR, CRT, ERR, WRN, NTC, INF, DBG, ALL).
+    log_level: 6
+    target_dir: /sync/recordings
+    stream_localhost: "off"
+    webcontrol_localhost: "off"
+    width: 640
+    height: 480
+    framerate: 15
+    text_left: PI_CAM
+    text_right: "%Y-%m-%d\n%T-%q"
+    # Always save pictures and movies even if there was no motion.
+    emulate_motion: "off"
+    threshold: 1500
+    noise_level: 32
+    minimum_motion_frames: 1
+    event_gap: 60
+    pre_capture: 30
+    post_capture: 10
+    picture_output: "on"
+    picture_filename: "%Y%m%d%H%M%S-%q"
+    # Create movies of motion events.
+    movie_output: "on"
+    # Maximum length of movie in seconds.
+    movie_max_time: 3600
+    # The encoding quality of the movie. (0=use bitrate. 1=worst quality, 100=best)
+    movie_quality: 100
+    # Container/Codec to used for the movie. See motion_guide.html
+    movie_codec: mkv
+    # File name(without extension) for movies relative to target directory
+    movie_filename: "%t-%v-%Y%m%d%H%M%S"
+    on_event_start: date
+    on_event_end: date
+    on_movie_end: date

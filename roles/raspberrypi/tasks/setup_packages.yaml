@@ -32,3 +32,4 @@
   apt:
     autoclean: yes
     force_apt_get: yes
+    autoremove: yes

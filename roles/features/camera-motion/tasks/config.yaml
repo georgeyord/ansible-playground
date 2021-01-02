@@ -1,12 +1,30 @@
 ---
 
-- name: update /etc/motion/motion.conf
+- name: Create motion configuration directory
+  become: true
+  file:
+    path: "/etc/motion"
+    state: directory
+    mode: '0755'
+    owner: "{{default_user}}"
+    group: "{{default_user}}"
+
+- name: update motion.conf
+  become: true
   template:
     src: motion.conf.j2
     dest: "/etc/motion/motion.conf"
-    owner: "root"
-    group: "root"
+    owner: "{{default_user}}"
+    group: "{{default_user}}"
     mode: "0644"
-  become: true
   tags:
     - config
+
+- name: Create Recordings directory
+  become: true
+  file:
+    path: "/sync/recordings"
+    state: directory
+    mode: '0755'
+    owner: "{{default_user}}"
+    group: "{{default_user}}"
